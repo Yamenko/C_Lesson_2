@@ -1,7 +1,7 @@
 ﻿//Задача 13: Напишите программу, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет.
 
 // Переменные
-int num;
+int num, digit, spliter;
 
 while (true)
 {
@@ -16,15 +16,11 @@ while (true)
     if (num == 0) { break; }
 
     // Проверка, что 3х значное и выводим 3ю цифру
-    num = (num / 100) % 10; // дополнительная проверка если будет сотен больше 9
-    if (num > 0) { Console.WriteLine("Третья цифра = " + num); }
-    else { Console.WriteLine("Третьей цифры нет"); }
+    digit = Convert.ToInt32(Math.Ceiling(Math.Log10(num))); // Определяем кол-во разрядов через логарифм основания 10
+    spliter = Convert.ToInt32(Math.Pow(10 ,(digit-3)));     // Определяем разряд который хотим получить
+
+    // Выводим сообщение на экран
+    if (digit < 3) { Console.WriteLine("Третьей цифры нет"); }
+    else { Console.WriteLine("Третьей цифры слева = " + ((num / spliter) % 10)); }
 }
 
-// Краткая запись без проверок))
-//int num;
-//Console.WriteLine("Введите число (0 для выхода):");
-//Int32.TryParse(Console.ReadLine(), out num);
-//num /= 100;
-//if (num > 0){   Console.WriteLine("Третьей цифры нет");}
-//else{           Console.WriteLine("Третья цифра = " + num);}
