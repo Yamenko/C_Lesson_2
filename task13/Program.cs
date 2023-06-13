@@ -23,4 +23,3 @@ while (true)
     if (digit < 3) { Console.WriteLine("Третьей цифры нет"); }
     else { Console.WriteLine("Третьей цифры слева = " + ((num / spliter) % 10)); }
 }
-
