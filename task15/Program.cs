@@ -4,7 +4,7 @@ int num;
 
 while (true)
 {
-    Console.WriteLine("Введите число (0 для выхода):");
+    Console.WriteLine("Введите номер деня недели (0 для выхода):");
 
     // Проверка числа
     if (!Int32.TryParse(Console.ReadLine(), out num))
@@ -16,7 +16,7 @@ while (true)
     if (num == 0) { break; }
 
     // Выводим сообщение на экран
-    if      (num == 0 || num > 7) {     Console.WriteLine("Такого дня нет"); }
+    if      (num <= 0 || num > 7) {     Console.WriteLine("Такого дня нет"); }
     else if (num == 6 || num == 7) {    Console.WriteLine("Выходной"); }
     else {                              Console.WriteLine("Будний день"); }
 }
